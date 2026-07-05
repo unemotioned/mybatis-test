@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- NULL 값을 공백이 아닌 null 로 인식하게끔 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="kr.or.iei.member.model.vo.Member"
+			alias="member" />
+		<typeAlias type="kr.or.iei.board.model.vo.Board"
+			alias="board" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<!-- 개발자가 commit rollback 을 관리하겠다는 뜼 -->
+			<transactionManager type="JDBC" />
+			<!-- connection pool 이라는게 있음 -->
+			<!-- connection 객체를 여러개 만들어 놓은 공간 거기서 갖다 쓰고 반납한다 -->
+			<dataSource type="POOLED">
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+				<property name="username" value="mybatis_test" />
+				<property name="password" value="1234" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mapper 파일 경로 지정 -->
+	<mappers>
+		<!-- 상대 경로 -->
+		<mapper resource="mapper/member-mapper.xml" />
+		<mapper resource="mapper/board-mapper.xml" />
+	</mappers>
+</configuration>
