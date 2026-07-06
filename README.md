@@ -1,4 +1,4 @@
-# MyBatis
+# MyBatis Practice
 
 ## What is MyBatis?
 
@@ -97,7 +97,7 @@ Check `download external resources like referenced dtd, xsd` checkbox
 
 Specify connection with the database
 
-1. Create new `source folder` under the project directory named `resources`
+1. Under `src/main` create new `source folder` named `resources`
 2. Create `XML file` under the resource folder named `mybatis-config`
 3. Check `create file using a DTD or XML scheme file` checkbox
 4. Select `xml catalog entry`
@@ -226,7 +226,8 @@ full path
     where member_id in
         <foreach collection="array"
                  item="id"
-                 open="(" separator=","
+                 open="("
+                 separator=","
                  close=")">
             #{id}
         </foreach>
@@ -252,7 +253,3 @@ full path
     ...
 </classpath>
 ```
-
----
-
-#### Happy hacking 🎉
